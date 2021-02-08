@@ -18,6 +18,7 @@ const OTEL_ERROR_DESCRIPTION: &str = "error";
 const OTEL_STATUS_CODE: &str = "otel.status_code";
 
 /// Converts `Event` into an `annotation::Annotation`
+#[allow(clippy::from_over_into)]
 impl Into<annotation::Annotation> for Event {
     fn into(self) -> annotation::Annotation {
         let timestamp = self

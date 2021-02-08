@@ -86,6 +86,7 @@ pub struct Process {
     pub tags: Vec<KeyValue>,
 }
 
+#[allow(clippy::from_over_into)]
 impl Into<jaeger::Process> for Process {
     fn into(self) -> jaeger::Process {
         jaeger::Process::new(
@@ -448,6 +449,7 @@ impl surf::middleware::Middleware for BasicAuthMiddleware {
 }
 
 #[rustfmt::skip]
+#[allow(clippy::from_over_into)]
 impl Into<jaeger::Tag> for KeyValue {
     fn into(self) -> jaeger::Tag {
         let KeyValue { key, value } = self;
@@ -462,6 +464,7 @@ impl Into<jaeger::Tag> for KeyValue {
     }
 }
 
+#[allow(clippy::from_over_into)]
 impl Into<jaeger::Log> for Event {
     fn into(self) -> jaeger::Log {
         let timestamp = self

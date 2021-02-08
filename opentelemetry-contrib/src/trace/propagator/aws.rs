@@ -178,6 +178,7 @@ impl TextMapPropagator for XrayPropagator {
 #[derive(Clone, Debug, PartialEq)]
 struct XrayTraceId(String);
 
+#[allow(clippy::from_over_into)]
 impl Into<Result<TraceId, ()>> for XrayTraceId {
     fn into(self) -> Result<TraceId, ()> {
         let parts: Vec<&str> = self.0.split_terminator('-').collect();
